@@ -3,33 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Editor de Diagramas de Flujo</title>
-<link rel="stylesheet" href="css/estilos.css">
+<meta name="theme-color" content="#4c1d95">
+<title>Editor de Diagramas</title>
+<link rel="stylesheet" href="css/Interfaz.css">
 </head>
 <body>
-<h1>Editor de Diagramas de Flujo</h1>
+<header>
+  <h1>Editor de Diagramas de Flujo</h1>
+</header>
 <div id="principal">
   <div class="panel" id="panelSimbolos"><h2>Símbolos</h2></div>
 
   <div id="centro">
-    <div id="titulo-diagrama">- Diagrama 1</div>
+    <div id="titulo-diagrama">Diagrama 1</div>
     <div id="mensaje"></div>
     <div id="zonaLienzo"><svg id="lienzo" xmlns="http://www.w3.org/2000/svg"></svg></div>
     <div id="codigo">
-      <h3>Código Generado</h3>
-      <pre id="textoCodigo">El código en C se generará aquí (siguiente avance)</pre>
+      <h3>Código generado(c)</h3>
+      <pre id="textoCodigo"></pre>
     </div>
   </div>
 
   <div class="panel" id="panelHerramientas">
     <h2>Herramientas</h2>
-    <button id="botonEditar">✏ Texto</button>
-    <button id="botonBorrar">🧽 Borrar</button>
-    <button id="botonGuardar" disabled title="Siguiente avance">💾 Guardar</button>
-    <button id="botonCargar" disabled title="Siguiente avance">⬆ Cargar</button>
-    <h2>Estilo</h2>
-    <label>Contorno <input type="color" id="colorContorno" value="#000000"></label>
-    <label>Relleno <input type="color" id="colorRelleno" value="#ffffff"></label>
+    <button id="botonEditar">Editar texto</button>
+    <button id="botonBorrar">Borrar figura</button>
+    <button id="botonGuardar">Guardar</button>
+    <button id="botonCargar">Cargar</button>
+    <h2>Colores y letra</h2>
+    <label>Contorno <input type="color" id="colorContorno" value="#5b21b6"></label>
+    <label>Relleno <input type="color" id="colorRelleno" value="#f3e8ff"></label>
     <label>Letra
       <select id="tamanoLetra">
         <option>10</option><option selected>12</option><option>14</option><option>16</option><option>20</option>

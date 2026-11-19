@@ -99,7 +99,7 @@ var Flechas = {
     Object.keys(atributos).forEach(function (k) { marca.setAttribute(k, atributos[k]); });
     var triangulo = Simbolos.nuevo("path");
     triangulo.setAttribute("d", "M0,0 L10,5 L0,10 z");
-    triangulo.setAttribute("fill", "#333");
+    triangulo.setAttribute("fill", "#5b21b6");
     marca.appendChild(triangulo);
     defs.appendChild(marca);
     return defs;
@@ -109,7 +109,7 @@ var Flechas = {
     var linea = Simbolos.nuevo("polyline");
     linea.setAttribute("points", flecha.puntos.map(function (p) { return p.x + "," + p.y; }).join(" "));
     linea.setAttribute("fill", "none");
-    linea.setAttribute("stroke", "#333");
+    linea.setAttribute("stroke", "#5b21b6");
     linea.setAttribute("stroke-width", 2);
     linea.setAttribute("marker-end", "url(#punta)");
     linea.setAttribute("pointer-events", "none");
@@ -123,7 +123,7 @@ var Flechas = {
     texto.setAttribute("text-anchor", "middle");
     texto.setAttribute("font-size", 12);
     texto.setAttribute("font-weight", "bold");
-    texto.setAttribute("fill", "#1565c0");
+    texto.setAttribute("fill", "#7e22ce");
     texto.setAttribute("pointer-events", "none");
     texto.textContent = e.texto;
     return texto;

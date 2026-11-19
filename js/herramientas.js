@@ -2,9 +2,13 @@ var Herramientas = {
   iniciar: function () {
     document.getElementById("botonBorrar").addEventListener("click", this.borrar);
     document.getElementById("botonEditar").addEventListener("click", this.editar);
+
     document.addEventListener("keydown", function (e) {
       var escribiendo = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
-      if (!escribiendo && (e.key == "Delete" || e.key == "Backspace")) Herramientas.borrar();
+      if (escribiendo) return;
+
+      if (e.key == "Delete" || e.key == "Backspace") Herramientas.borrar();
+      if (e.key == "e" || e.key == "E") Herramientas.editar();
     });
 
     this.conectarEstilo("colorContorno", "input", "contorno");
@@ -23,7 +27,7 @@ var Herramientas = {
 
   editar: function () {
     if (!Estado.figuraSeleccionada) {
-      Mensaje.mostrar("Primero selecciona una figura.");
+      Mensaje.mostrar("Selecciona algo primero.");
       return;
     }
     Lienzo.editarTexto(Estado.figuraSeleccionada);
@@ -31,7 +35,7 @@ var Herramientas = {
 
   borrar: function () {
     if (!Estado.borrarSeleccionada()) {
-      Mensaje.mostrar("Primero selecciona una figura.");
+      Mensaje.mostrar("No hay nada seleccionado.");
       return;
     }
     Lienzo.dibujar();

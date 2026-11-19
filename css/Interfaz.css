@@ -1,0 +1,49 @@
+:root {
+  --morado-oscuro: #4c1d95;
+  --morado: #7c3aed;
+  --morado-suave: #a78bfa;
+  --lila: #ede9fe;
+  --lila-claro: #f5f3ff;
+  --texto: #2e1065;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body { margin: 0; font-family: "Segoe UI", Roboto, Arial, sans-serif; color: var(--texto); background: #ddd6fe; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overscroll-behavior: none; }
+header { background: linear-gradient(90deg, var(--morado-oscuro), var(--morado)); color: #fff; padding: 10px 18px; box-shadow: 0 2px 10px rgba(76, 29, 149, 0.35); }
+header h1 { margin: 0; font-size: 21px; letter-spacing: 0.3px; }
+header p { margin: 2px 0 0; font-size: 12px; color: #ddd6fe; }
+#principal { flex: 1; display: flex; gap: 10px; padding: 10px; min-height: 0; }
+.panel { background: var(--lila); width: 136px; padding: 10px; border-radius: 14px; box-shadow: 0 2px 8px rgba(76, 29, 149, 0.18); display: flex; flex-direction: column; gap: 8px; overflow-y: auto; user-select: none; -webkit-user-select: none; }
+.panel h2 { margin: 6px 0 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--morado); }
+.panel button { cursor: pointer; border: 1px solid var(--morado-suave); background: #fff; color: var(--texto); border-radius: 10px; padding: 6px 4px; font-size: 12px; text-align: center; transition: background 0.15s, transform 0.15s, box-shadow 0.15s; }
+.panel button:hover:not(:disabled) { background: var(--lila-claro); border-color: var(--morado); transform: translateY(-1px); box-shadow: 0 3px 6px rgba(124, 58, 237, 0.25); }
+.panel button.activo { background: var(--morado); border-color: var(--morado-oscuro); color: #fff; }
+.panel button:disabled { opacity: 0.5; cursor: not-allowed; }
+.panel svg { display: block; margin: 0 auto 2px; }
+.panel label { font-size: 12px; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.panel input[type=color] { width: 38px; height: 26px; padding: 0; border: 1px solid var(--morado-suave); border-radius: 6px; background: #fff; cursor: pointer; }
+.panel select { width: 100%; padding: 3px; border: 1px solid var(--morado-suave); border-radius: 6px; background: #fff; color: var(--texto); }
+#centro { flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+#titulo-diagrama { background: #fff; color: var(--morado-oscuro); font-weight: 700; font-size: 14px; padding: 8px 14px; border-bottom: 3px solid var(--morado); border-radius: 14px 14px 0 0; }
+#mensaje { background: var(--lila-claro); color: #5b21b6; font-size: 13px; padding: 6px 14px; border-bottom: 1px solid var(--lila); }
+#zonaLienzo { flex: 1; min-height: 0; overflow: auto; background-color: #fff; background-image: radial-gradient(#ddd6fe 1.2px, transparent 1.2px); background-size: 22px 22px; background-attachment: local; border: 1px solid var(--morado-suave); border-top: none; }
+#lienzo { display: block; width: 100%; height: 100%; min-width: 800px; min-height: 1100px; cursor: crosshair; user-select: none; -webkit-user-select: none; }
+#codigo { height: 140px; margin-top: 8px; background: #1e1b4b; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(30, 27, 75, 0.35); }
+#codigo h3 { margin: 0; padding: 6px 14px; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; color: #c4b5fd; background: #312e81; }
+#codigo pre { margin: 0; padding: 8px 14px; font-family: Consolas, "Courier New", monospace; font-size: 13px; color: #e9d5ff; white-space: pre-wrap; overflow: auto; flex: 1; }
+.figura { cursor: move; }
+.figura.seleccionada .forma { stroke-dasharray: 6 3; filter: drop-shadow(0 0 4px var(--morado)); }
+
+@media (max-width: 700px) {
+  header { padding: 6px 12px; }
+  header h1 { font-size: 16px; }
+  header p { display: none; }
+  #principal { flex-direction: column; gap: 6px; padding: 6px; }
+  .panel { width: 100%; flex-direction: row; align-items: center; overflow-x: auto; overflow-y: hidden; padding: 6px; flex-shrink: 0; }
+  .panel h2 { display: none; }
+  .panel button { flex: 0 0 auto; white-space: nowrap; min-height: 38px; padding: 6px 10px; }
+  .panel label { flex: 0 0 auto; }
+  .panel select { width: auto; }
+  #codigo { height: 80px; margin-top: 6px; }
+  #codigo pre { font-size: 11px; }
+}

@@ -17,6 +17,7 @@ var Lienzo = {
     });
 
     this.elemento.addEventListener("pointerdown", function (e) { Lienzo.iniciarArrastre(e); });
+
     this.elemento.addEventListener("touchstart", function (e) {
       if (Lienzo.figuraDe(e.target)) e.preventDefault();
     }, { passive: false });
@@ -46,9 +47,6 @@ var Lienzo = {
     var figura = Estado.agregar(tipo, x, y, Herramientas.estiloActual());
     Estado.seleccionar(figura);
     this.dibujar();
-    if (Estado.plantillaRamas[tipo]) {
-      Mensaje.mostrar("Se crearon las instrucciones de las ramas. Tócalas dos veces para escribir su texto.");
-    }
   },
 
   dibujar: function () {
@@ -87,7 +85,7 @@ var Lienzo = {
   },
 
   editarTexto: function (figura) {
-    var nuevo = prompt("Escribe el texto de la figura:", figura.texto);
+    var nuevo = prompt("Texto:", figura.texto);
     if (nuevo !== null) {
       figura.texto = nuevo;
       this.dibujar();
@@ -134,7 +132,6 @@ var Lienzo = {
     }
 
     function soltar(ev) {
-      if (ev.pointerId !== e.pointerId) return;
       document.removeEventListener("pointermove", mover);
       document.removeEventListener("pointerup", soltar);
       document.removeEventListener("pointercancel", soltar);

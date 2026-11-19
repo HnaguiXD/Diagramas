@@ -17,7 +17,8 @@ var PanelSimbolos = {
     mini.setAttribute("width", 70);
     mini.setAttribute("height", 36);
     mini.setAttribute("viewBox", "-90 -50 180 100");
-    mini.appendChild(Simbolos.crearForma(tipo, "#000", "#fff"));
+    mini.setAttribute("aria-hidden", "true");
+    mini.appendChild(Simbolos.crearForma(tipo, "#5b21b6", "#f3e8ff"));
     boton.appendChild(mini);
     boton.appendChild(document.createTextNode(Simbolos.catalogo[tipo].nombre));
 
@@ -33,7 +34,5 @@ var PanelSimbolos = {
     this.elemento.querySelectorAll("button").forEach(function (b) {
       b.classList.toggle("activo", b.dataset.tipo == elegido);
     });
-    if (elegido) Mensaje.mostrar("Haz clic en el lienzo para colocar: " + Simbolos.catalogo[elegido].nombre);
-    else Mensaje.mostrarAyuda();
   }
 };

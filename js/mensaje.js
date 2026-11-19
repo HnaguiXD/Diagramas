@@ -1,5 +1,5 @@
 var Mensaje = {
-  ayuda: "Elige un símbolo y toca el lienzo (o arrástralo). Toca dos veces una figura, o usa Texto, para editar su contenido.",
+  ayuda: "Elige y suelta en el lienzo, doble click para editar.",
 
   mostrar: function (texto) {
     document.getElementById("mensaje").textContent = texto;
@@ -7,5 +7,9 @@ var Mensaje = {
 
   mostrarAyuda: function () {
     this.mostrar(this.ayuda);
+  },
+
+  limpiar: function () {
+    this.mostrar("");
   }
 };
