@@ -1,0 +1,36 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Arial, sans-serif; background: #7fc8e0; height: 100vh; height: 100dvh; display: flex; flex-direction: column; overscroll-behavior: none; }
+h1 { margin: 0; padding: 6px 10px; font-size: 18px; color: #c00; background: #fff8cc; border-bottom: 2px solid #345; }
+#principal { flex: 1; display: flex; min-height: 0; }
+.panel { background: #a9dcec; padding: 8px; display: flex; flex-direction: column; gap: 6px; width: 120px; overflow-y: auto; user-select: none; -webkit-user-select: none; }
+.panel h2 { margin: 4px 0 0; font-size: 12px; color: #123; }
+.panel button { cursor: pointer; border: 1px solid #345; background: #fff; border-radius: 4px; padding: 4px; font-size: 12px; text-align: center; }
+.panel button:hover:not(:disabled) { background: #eef; }
+.panel button.activo { background: #ffd54f; border-color: #c60; }
+.panel svg { display: block; margin: 0 auto 2px; }
+.panel label { font-size: 12px; display: flex; justify-content: space-between; align-items: center; }
+.panel input[type=color] { width: 36px; height: 24px; padding: 0; border: 1px solid #345; }
+.panel select { width: 100%; }
+#centro { flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+#titulo-diagrama { background: linear-gradient(90deg, #fff, #0a5ab5); font-weight: bold; padding: 3px 8px; font-size: 14px; }
+#mensaje { font-size: 12px; padding: 3px 8px; background: #fff8cc; }
+#zonaLienzo { flex: 1; min-height: 0; overflow: auto; background: #fff; border: 1px solid #345; }
+#lienzo { display: block; width: 100%; height: 100%; min-width: 800px; min-height: 1100px; cursor: crosshair; user-select: none; -webkit-user-select: none; }
+#codigo { height: 140px; background: #fff; border: 1px solid #345; margin-top: 4px; display: flex; flex-direction: column; }
+#codigo h3 { margin: 0; padding: 3px 8px; font-size: 12px; color: #00007a; background: #bfe6f2; }
+#codigo pre { margin: 0; padding: 6px 10px; font-size: 13px; overflow: auto; flex: 1; }
+.figura { cursor: move; }
+.figura.seleccionada .forma { stroke-dasharray: 6 3; filter: drop-shadow(0 0 3px #1565c0); }
+
+@media (max-width: 700px) {
+  h1 { font-size: 15px; padding: 4px 8px; }
+  #principal { flex-direction: column; }
+  .panel { width: 100%; flex-direction: row; align-items: center; overflow-x: auto; overflow-y: hidden; padding: 4px; flex-shrink: 0; }
+  .panel h2 { display: none; }
+  .panel button { flex: 0 0 auto; white-space: nowrap; min-height: 36px; }
+  .panel label { flex: 0 0 auto; gap: 4px; }
+  .panel select { width: auto; }
+  #codigo { height: 80px; margin-top: 2px; }
+  #codigo pre { font-size: 11px; }
+}
